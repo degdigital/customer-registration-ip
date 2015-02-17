@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Core/etc/config.xsd">
+    <default>
+        <customerregip>
+            <general>
+                <ipinfodb_api_key><![CDATA[]]></ipinfodb_api_key>
+            </general>
+        </customerregip>
+    </default>
+</config>
