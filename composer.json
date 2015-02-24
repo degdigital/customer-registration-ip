@@ -1,6 +1,6 @@
 {
   "name": "deg/customer-reg-ip",
-  "description": "Port of Customer Registration IP extension",
+  "description": "Example port of Customer Registration IP extension",
   "require": {
     "php": "~5.4.11|~5.5.0",
     "magento/magento-composer-installer": "*"

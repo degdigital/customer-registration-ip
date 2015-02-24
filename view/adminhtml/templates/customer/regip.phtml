@@ -1,0 +1,39 @@
+<?php
+?>
+<tr>
+    <td>
+        <?php if ($this->isCustomerCreatedInAdmin()): ?>
+            <?php echo __('Admin IP during creation:') ?>
+        <?php else: ?>
+            <?php echo __('Remote IP during registration:') ?>
+        <?php endif; ?>
+        <?php echo $this->getCustomerRegIpHtml() ?>
+    </td>
+    <?php if ($this->isValidIp()): ?>
+        <td>
+            <?php if ($this->isIpInfoDbEnabled()): ?>
+                <button onclick="customerRegIp.lookup(); return false;"
+                        title="<?php echo __('Check the location of %s via AJAX', $this->getCustomerRegIp()) ?>"><span><?php echo __('IPInfoDB Lookup') ?></span></button>
+            <?php endif; ?>
+            <button onclick="window.open('http://www.ip2location.com/<?php echo $this->getCustomerRegIp() ?>','lookup',''); return false;"
+                    title="<?php echo __('Check the location of %s in a popup', $this->getCustomerRegIp()) ?>"><span><?php echo __('ip2location.com Lookup') ?></span></button>
+        </td>
+    <?php endif; ?>
+</tr>
+<div id="customerregip-lookup-result" style="display: none;"></div>
+
+<script type="text/javascript">
+    if (typeof CustomerRegIp=='undefined') {
+        var CustomerRegIp = Class.create({
+            initialize: function(){
+                this.url = '<?php echo $this->getAjaxLookupUrl() ?>';
+                this.targetId = 'customerregip-lookup-result';
+            },
+            lookup: function(){
+                $(this.targetId).show();
+                new Ajax.Updater(this.targetId, this.url);
+            }
+        });
+    }
+    var customerRegIp = new CustomerRegIp();
+</script>

@@ -1,0 +1,54 @@
+
+<?php $info = $this->getInfo() ?>
+<table cellspacing="2" class="box-left">
+    <tr>
+        <td>
+            <?php echo $this->__('IP:') ?>
+        </td>
+        <td>
+            <?php echo $this->htmlEscape($info->getIp()) ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <?php echo $this->__('DNS Lookup:') ?>
+        </td>
+        <td>
+            <?php echo $this->htmlEscape($this->resolveDnsAddr($info->getIp())) ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <?php echo $this->__('Country:') ?>
+        </td>
+        <td>
+            <?php echo $this->htmlEscape($info->getCountryName()) ?>
+            (
+            <?php echo $this->htmlEscape($info->getCountry()) ?>
+            )</td>
+    </tr>
+    <tr>
+        <td>
+            <?php echo $this->__('Region:') ?>
+        </td>
+        <td>
+            <?php echo $this->htmlEscape($info->getRegion()) ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <?php echo $this->__('City:') ?>
+        </td>
+        <td>
+            <?php echo $this->htmlEscape($info->getCity()) ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <?php echo $this->__('Postcode:') ?>
+        </td>
+        <td>
+            <?php echo $this->htmlEscape($info->getPostcode()) ?>
+        </td>
+    </tr>
+</table>
